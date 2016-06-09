@@ -23,33 +23,45 @@ end
 %Save off data structure
 guidata(gcbo,handles); 
 
-resetLights(); 
+% resetLights(); 
 
 % Play the short duration tone and light up the associated axes
 switch num
     case 1
-        play(handles.play_tone1_short);
-        axes(handles.axes_1);                   
-        fill([0 1 1 0],[0 0 1 1],handles.axes_1_color); 
-        axis off
+        player = audioplayer(handles.tone1, handles.fs);
+        play(player);
+%         axes(handles.axes_1);                   
+%         fill([0 1 1 0],[0 0 1 1],handles.axes_1_color); 
+%         axis off
+        
+        set(handles.pushbutton_1, 'BackgroundColor', handles.axes_1_color);
     
     case 2
-        play(handles.play_tone2_short);
-        axes(handles.axes_2);                   
-        fill([0 1 1 0],[0 0 1 1],handles.axes_2_color); 
-        axis off
+        player = audioplayer(handles.tone2, handles.fs);
+        play(player);
+%         axes(handles.axes_2);                   
+%         fill([0 1 1 0],[0 0 1 1],handles.axes_2_color); 
+%         axis off
+        
+        set(handles.pushbutton_2, 'BackgroundColor', handles.axes_2_color);
         
     case 3
-        play(handles.play_tone3_short);
-        axes(handles.axes_3);                   
-        fill([0 1 1 0],[0 0 1 1],handles.axes_3_color); 
-        axis off
+        player = audioplayer(handles.tone3, handles.fs);
+        play(player);
+%         axes(handles.axes_3);                   
+%         fill([0 1 1 0],[0 0 1 1],handles.axes_3_color); 
+%         axis off
+        
+        set(handles.pushbutton_3, 'BackgroundColor', handles.axes_3_color);
         
     case 4
-        play(handles.play_tone4_short);       
-        axes(handles.axes_4);                   
-        fill([0 1 1 0],[0 0 1 1],handles.axes_4_color); 
-        axis off
+        player = audioplayer(handles.tone4, handles.fs);
+        play(player); 
+%         axes(handles.axes_4);                   
+%         fill([0 1 1 0],[0 0 1 1],handles.axes_4_color); 
+%         axis off
+        
+        set(handles.pushbutton_4, 'BackgroundColor', handles.axes_4_color);
 end
 
 pause(handles.dur_short);
@@ -149,17 +161,25 @@ function resetLights()
 
 handles = guidata(gcbo);
 
-axes(handles.axes_1);
-fill([0 1 1 0],[0 0 1 1],handles.background_color);
-axis off
-axes(handles.axes_2);
-fill([0 1 1 0],[0 0 1 1],handles.background_color);
-axis off
-axes(handles.axes_3);
-fill([0 1 1 0],[0 0 1 1],handles.background_color);
-axis off
-axes(handles.axes_4);
-fill([0 1 1 0],[0 0 1 1],handles.background_color);
-axis off
+% axes(handles.axes_1);
+% fill([0 1 1 0],[0 0 1 1],handles.background_color);
+% axis off
+set(handles.pushbutton_1, 'BackgroundColor', handles.background_color_1);
+
+% axes(handles.axes_2);
+% fill([0 1 1 0],[0 0 1 1],handles.background_color);
+% axis off
+set(handles.pushbutton_2, 'BackgroundColor', handles.background_color_2);
+
+% axes(handles.axes_3);
+% fill([0 1 1 0],[0 0 1 1],handles.background_color);
+% axis off
+set(handles.pushbutton_3, 'BackgroundColor', handles.background_color_3);
+
+% axes(handles.axes_4);
+% fill([0 1 1 0],[0 0 1 1],handles.background_color);
+% axis off
+set(handles.pushbutton_4, 'BackgroundColor', handles.background_color_4);
+
 
 

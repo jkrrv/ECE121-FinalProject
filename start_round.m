@@ -22,7 +22,7 @@ set(handles.text_result, 'Visible', 'off');
 % Create a datastructure for the current sequence
 handles.num_sequence = [];
 
-brief_delay = 0.4; % delay duration after sound/light sequence
+brief_delay = handles.dur; % delay duration after sound/light sequence
 
 for m=1:length(handles.color_seq)
     
@@ -31,50 +31,58 @@ for m=1:length(handles.color_seq)
     switch handles.color_seq{m}
         
         case '1'
-            axes(handles.axes_1);             
-            fill([0 1 1 0],[0 0 1 1],handles.axes_1_color);     
-            axis off                           
+            set(handles.pushbutton_1, 'BackgroundColor', handles.axes_1_color);
+%             axes(handles.axes_1);             
+%             fill([0 1 1 0],[0 0 1 1],handles.axes_1_color);     
+%             axis off                           
             play(handles.play_tone1);
             pause(handles.dur)       
             
-            fill([0 1 1 0],[0 0 1 1],handles.background_color);
-            axis off                            
+            set(handles.pushbutton_1, 'BackgroundColor', handles.background_color_1);
+%             fill([0 1 1 0],[0 0 1 1],handles.background_color);
+%             axis off                            
             pause(brief_delay)                 
             handles.num_sequence(end+1) = 1;  % Add sequence to 'key' vector
             
         case '2'
-            axes(handles.axes_2); 
-            fill([0 1 1 0],[0 0 1 1],handles.axes_2_color); 
-            axis off
+            set(handles.pushbutton_2, 'BackgroundColor', handles.axes_2_color);
+%             axes(handles.axes_2); 
+%             fill([0 1 1 0],[0 0 1 1],handles.axes_2_color); 
+%             axis off
             play(handles.play_tone2);
             pause(handles.dur);
             
-            fill([0 1 1 0],[0 0 1 1],handles.background_color);
-            axis off
+            set(handles.pushbutton_2, 'BackgroundColor', handles.background_color_2);
+%             fill([0 1 1 0],[0 0 1 1],handles.background_color);
+%             axis off
             pause(brief_delay);
             handles.num_sequence(end+1) = 2;
             
         case '3'
-            axes(handles.axes_3); 
-            fill([0 1 1 0],[0 0 1 1],handles.axes_3_color); 
-            axis off
+            set(handles.pushbutton_3, 'BackgroundColor', handles.axes_3_color);
+%             axes(handles.axes_3); 
+%             fill([0 1 1 0],[0 0 1 1],handles.axes_3_color); 
+%             axis off
             play(handles.play_tone3);
             pause(handles.dur);
             
-            fill([0 1 1 0],[0 0 1 1],handles.background_color);
-            axis off
+            set(handles.pushbutton_3, 'BackgroundColor', handles.background_color_3);
+%             fill([0 1 1 0],[0 0 1 1],handles.background_color);
+%             axis off
             pause(brief_delay);
             handles.num_sequence(end+1) = 3;
             
         case '4'
-            axes(handles.axes_4); 
-            fill([0 1 1 0],[0 0 1 1],handles.axes_4_color); 
-            axis off
+            set(handles.pushbutton_4, 'BackgroundColor', handles.axes_4_color);
+%             axes(handles.axes_4); 
+%             fill([0 1 1 0],[0 0 1 1],handles.axes_4_color); 
+%             axis off
             play(handles.play_tone4);
             pause(handles.dur);
             
-            fill([0 1 1 0],[0 0 1 1],handles.background_color);
-            axis off
+            set(handles.pushbutton_4, 'BackgroundColor', handles.background_color_4);
+%             fill([0 1 1 0],[0 0 1 1],handles.background_color);
+%             axis off
             pause(brief_delay);
             handles.num_sequence(end+1) = 4;
     end
